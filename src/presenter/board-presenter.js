@@ -8,8 +8,9 @@ import { render } from '../render';
 export default class BoardPresenter {
   eventListComponent = new EventListView();
 
-  constructor({boardContainer}) {
+  constructor({boardContainer, tripPointsModel}) {
     this.boardContainer = boardContainer;
+    this.tripPointsModel = tripPointsModel;
   }
 
   init() {
@@ -17,11 +18,11 @@ export default class BoardPresenter {
     render(this.eventListComponent, this.boardContainer);
 
     render(new NewItemFormView(), this.eventListComponent.getElement());
-    render(new EventItemView(), this.eventListComponent.getElement());
+
     render(new EditFormView(), this.eventListComponent.getElement());
 
-    for (let i = 0; i < 3; i++) {
-      render(new EventItemView(), this.eventListComponent.getElement());
+    for (let i = 0; i < this.tripPoints.length; i++) {
+      render(new EventItemView({tripPoint: this.tripPoints[i]}), this.eventListComponent.getElement());
     }
   }
 }
