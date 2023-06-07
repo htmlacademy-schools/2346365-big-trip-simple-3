@@ -30,6 +30,7 @@
     "css-loader": "^6.8.1",
     "dayjs": "^1.11.8",
     "flatpickr": "^4.6.13",
+    "nanoid": "^4.0.2",
     "styles-loader": "^4.0.1",
     "webpack": "^5.84.1",
     "webpack-cli": "^5.1.1",
