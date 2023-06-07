@@ -31,7 +31,6 @@
     "dayjs": "^1.11.8",
     "flatpickr": "^4.6.13",
     "he": "^1.2.0",
-    "nanoid": "^4.0.2",
     "styles-loader": "^4.0.1",
     "webpack": "^5.84.1",
     "webpack-cli": "^5.1.1",
