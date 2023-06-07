@@ -3,7 +3,7 @@ import {render} from './render.js';
 import BoardPresenter from './presenter/board-presenter.js';
 import TripPointModel from './model/trip-point-model.js';
 import { mockInit, tripPoints } from './mock/point.js';
-
+// crlf
 const main = document.querySelector('.page-body__page-main');
 const pageContainer = main.querySelector('.trip-events');
 const siteFilterElement = document.querySelector('.trip-controls__filters');
