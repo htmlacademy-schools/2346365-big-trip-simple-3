@@ -3,16 +3,21 @@ import {render} from './framework/render.js';
 import BoardPresenter from './presenter/board-presenter.js';
 import TripPointModel from './model/trip-point-model.js';
 import { mockInit, tripPoints } from './mock/point.js';
-// crlf
-const main = document.querySelector('.page-body__page-main');
-const pageContainer = main.querySelector('.trip-events');
+import { generateFilter } from './mock/filter.js';
+import { generateSorter } from './mock/sort.js';
+
+
+const pageContainer = document.querySelector('.trip-events');
 const siteFilterElement = document.querySelector('.trip-controls__filters');
 
 mockInit(5, 10);
 
-const tripPointsModel = new TripPointModel();
-const boardPresenter = new BoardPresenter({boardContainer: pageContainer, tripPointsModel});
+const filters = generateFilter();
+const sorters = generateSorter();
 
-render(new FilterView(), siteFilterElement);
+const tripPointsModel = new TripPointModel(tripPoints);
+const boardPresenter = new BoardPresenter({boardContainer: pageContainer, tripPointsModel, sorters});
+render(new FilterView(filters), siteFilterElement);
+
 
 boardPresenter.init();
