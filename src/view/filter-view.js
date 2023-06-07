@@ -1,6 +1,6 @@
 import AbstractView from '../framework/view/abstract-view.js';
-import { capitalizeType } from '../utils.js';
-
+import { FilterType } from '../mock/const.js';
+import { capitalizeType } from '../utils/utils.js';
 
 function createFilterItemTemplate(filterType) {
   return `
@@ -10,8 +10,9 @@ function createFilterItemTemplate(filterType) {
   </div>
   `;
 }
-function createFilterTemplate(filters) {
-  const filterItems = filters.map((filter) => createFilterItemTemplate(filter)).join('');
+
+function createFilterTemplate() {
+  const filterItems = Object.keys(FilterType).map((filter) => createFilterItemTemplate(filter)).join('');
   return (`
     <form class="trip-filters" action="#" method="get">
       ${filterItems}
@@ -21,14 +22,9 @@ function createFilterTemplate(filters) {
 }
 
 export default class FilterView extends AbstractView{
-  #filters = null;
-
-  constructor(filters) {
-    super();
-    this.#filters = filters;
-  }
 
   get template() {
-    return createFilterTemplate(this.#filters);
+    return createFilterTemplate();
   }
+
 }
