@@ -1,6 +1,6 @@
 import { capitalizeType, getItemFromItemsById } from '../utils/utils.js';
 import AbstractStatefulView from '../framework/view/abstract-stateful-view.js';
-import { convertToBasicime } from '../utils/formatTime-Utils.js';
+import { convertToBasicime } from '../utils/format-time-utils.js';
 import { pointTypes } from '../const.js';
 import he from 'he';
 import flatpickr from 'flatpickr';
