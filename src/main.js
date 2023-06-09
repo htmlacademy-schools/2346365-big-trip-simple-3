@@ -2,7 +2,7 @@ import BoardPresenter from './presenter/board-presenter.js';
 import FilterPresenter from './presenter/filter-presenter.js';
 
 import TripPointModel from './model/trip-point-model.js';
-import DestinationsModel from './model/destinations-model.js';
+import DestinationsModel from './model/destination-model.js';
 import OffersModel from './model/offers-model.js';
 import FilterModel from './model/filter-model.js';
 

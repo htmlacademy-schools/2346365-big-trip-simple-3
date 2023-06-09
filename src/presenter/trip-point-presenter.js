@@ -3,7 +3,7 @@ import TripPointView from '../view/trip-point-view';
 import EditFormView from '../view/edit-form-view';
 import { isEscapeKey } from '../utils/utils';
 import { UserAction, UpdateType } from '../const';
-import { isDatesEqual } from '../utils/formatTime-Utils';
+import { isDatesEqual } from '../utils/format-time-utils';
 
 const Mode = {
   DEFAULT: 'DEFAULT',

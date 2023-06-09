@@ -16,5 +16,12 @@ function isDatesEqual(dateA, dateB) {
   return (dateA === null && dateB === null) || dayjs(dateA).isSame(dateB, 'D');
 }
 
-export {convertToBasicime, convertToDateTime, convertToEventDate, convertToEventDateTime,
-  convertToFormDate, convertToTime, isDatesEqual};
+export {
+  convertToBasicime,
+  convertToDateTime,
+  convertToEventDate,
+  convertToEventDateTime,
+  convertToFormDate,
+  convertToTime,
+  isDatesEqual
+};
