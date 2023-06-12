@@ -1,6 +1,6 @@
-import AbstractView from '../framework/view/abstract-view';
-import { SortType, SortTypeDescription } from '../const';
-import { isDisabled } from '../utils/sorts';
+import AbstractView from '../framework/view/abstract-view.js';
+import { SortType, SortTypeDescription } from '../const.js';
+import { isDisabled } from '../utils/sorts.js';
 
 const createSortItemTemplate = (sortType, currentSortType) => (`
   <div class="trip-sort__item  trip-sort__item--${sortType} ">

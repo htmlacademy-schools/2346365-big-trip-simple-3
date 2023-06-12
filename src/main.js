@@ -11,7 +11,7 @@ import NewTripPointButtonView from './view/new-trip-point-button-view.js';
 
 import TripPointApiService from './api/trip-point-api-service.js';
 
-const AUTHORIZATION = 'Basic daevka1307_4';
+const AUTHORIZATION = 'Basic kursor';
 const END_POINT = 'https://18.ecmascript.pages.academy/big-trip';
 
 const boardContainer = document.querySelector('.trip-events');
@@ -57,7 +57,6 @@ function onNewTripPointDestroy() {
 }
 
 filterPresenter.init();
-boardPresenter.init();
 tripPointsModel.init()
   .finally(() => {
     render(newTripPointButtonComponent, siteHeaderElement);

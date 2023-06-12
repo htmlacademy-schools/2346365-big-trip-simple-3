@@ -1,7 +1,7 @@
-import { render, remove, RenderPosition } from '../framework/render';
-import EditFormView from '../view/edit-form-view';
-import { isEscapeKey } from '../utils/utils';
-import { UserAction, UpdateType } from '../const';
+import { render, remove, RenderPosition } from '../framework/render.js';
+import EditFormView from '../view/edit-form-view.js';
+import { isEscapeKey } from '../utils/utils.js';
+import { UserAction, UpdateType } from '../const.js';
 
 export default class NewTripPointPresenter {
   #handleDataChange = null;
@@ -79,7 +79,6 @@ export default class NewTripPointPresenter {
     this.#handleDataChange(
       UserAction.ADD_TRIPPOINT,
       UpdateType.MINOR,
-
       this.#deleteId(tripPoint)
     );
 
