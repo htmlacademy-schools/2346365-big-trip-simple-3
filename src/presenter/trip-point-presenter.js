@@ -1,9 +1,9 @@
-import { render, replace, remove } from '../framework/render';
-import TripPointView from '../view/trip-point-view';
-import EditFormView from '../view/edit-form-view';
-import { isEscapeKey } from '../utils/utils';
-import { UserAction, UpdateType } from '../const';
-import { isDatesEqual } from '../utils/format-time-utils';
+import { render, replace, remove } from '../framework/render.js';
+import TripPointView from '../view/trip-point-view.js';
+import EditFormView from '../view/edit-form-view.js';
+import { isEscapeKey } from '../utils/utils.js';
+import { UserAction, UpdateType } from '../const.js';
+import { isDatesEqual } from '../utils/format-time-utils.js';
 
 const Mode = {
   DEFAULT: 'DEFAULT',

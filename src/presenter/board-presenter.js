@@ -1,17 +1,17 @@
-import SortView from '../view/sort-view';
-import NoPointsView from '../view/no-points-view';
-import TripPointListView from '../view/trip-point-list-view';
-import LoadingView from '../view/loading-view';
+import SortView from '../view/sort-view.js';
+import NoPointsView from '../view/no-points-view.js';
+import TripPointListView from '../view/trip-point-list-view.js';
+import LoadingView from '../view/loading-view.js';
 
 import UiBlocker from '../framework/ui-blocker/ui-blocker.js';
 import {RenderPosition, render, remove } from '../framework/render.js';
 
-import TripPointPresenter from './trip-point-presenter';
-import NewTripPointPresenter from './new-trip-point-presenter';
+import TripPointPresenter from './trip-point-presenter.js';
+import NewTripPointPresenter from './new-trip-point-presenter.js';
 
-import { FilterType, SortType, UpdateType, UserAction } from '../const';
-import { sorts } from '../utils/sorts';
-import { filter } from '../utils/filter';
+import { FilterType, SortType, UpdateType, UserAction } from '../const.js';
+import { sorts } from '../utils/sorts.js';
+import { filter } from '../utils/filter.js';
 
 const TimeLimit = {
   LOWER_LIMIT: 350,
@@ -53,8 +53,10 @@ export default class BoardPresenter {
       onDestroy: onNewTripPointDestroy
     });
 
+    this.#destinationsModel.addObserver(this.#handleModelEvent);
     this.#tripPointsModel.addObserver(this.#handleModelEvent);
     this.#filterModel.addObserver(this.#handleModelEvent);
+    this.#offersModel.addObserver(this.#handleModelEvent);
 
   }
 
@@ -73,11 +75,6 @@ export default class BoardPresenter {
     return this.#offersModel.offers;
   }
 
-  init() {
-
-    this.#renderBoard();
-  }
-
   createTripPoint() {
     this.#currentSortType = SortType.DAY;
     this.#filterModel.setFilter(UpdateType.MAJOR, FilterType.EVERYTHING);
@@ -93,7 +90,6 @@ export default class BoardPresenter {
     this.#uiBlocker.block();
     switch (actionType) {
       case UserAction.ADD_TRIPPOINT:
-        this.#tripPointPresenter.get(update.id).setSaving();
         try {
           await this.#tripPointsModel.addTripPoint(updateType, update);
         } catch(err) {
@@ -139,6 +135,7 @@ export default class BoardPresenter {
       case UpdateType.INIT:
         this.#isLoading = false;
         remove(this.#loadingComponent);
+        this.#clearBoard();
         this.#renderBoard();
         break;
     }
@@ -172,7 +169,6 @@ export default class BoardPresenter {
   };
 
   #renderSort() {
-
     this.#sortComponent = new SortView({
       currentSortType: this.#currentSortType,
       onSortTypeChange: this.#handleSortTypeChange
@@ -217,7 +213,6 @@ export default class BoardPresenter {
   }
 
   #renderBoard() {
-
     if(this.#isLoading) {
       this.#renderLoading();
       return;
@@ -232,7 +227,5 @@ export default class BoardPresenter {
     this.#renderSort();
     render(this.#tripPointsListComponent, this.#boardContainer);
     this.#renderTripPoints(tripPoints);
-
   }
-
 }

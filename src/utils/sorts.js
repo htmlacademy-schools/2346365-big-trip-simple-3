@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { SortType } from '../const';
+import { SortType } from '../const.js';
 
 
 const disabledSorts = ['event', 'offer' ];

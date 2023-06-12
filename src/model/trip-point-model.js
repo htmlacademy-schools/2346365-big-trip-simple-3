@@ -1,5 +1,5 @@
-import { UpdateType } from '../const';
-import Observable from '../framework/observable';
+import { UpdateType } from '../const.js';
+import Observable from '../framework/observable.js';
 export default class TripPointModel extends Observable {
   #tripPointApiService = null;
   #tripPoints = [];
@@ -7,6 +7,7 @@ export default class TripPointModel extends Observable {
   constructor ({tripPointApiService}) {
     super();
     this.#tripPointApiService = tripPointApiService;
+    this.init();
 
   }
 
@@ -18,6 +19,7 @@ export default class TripPointModel extends Observable {
     try {
       const tripPoints = await this.#tripPointApiService.tripPoints;
       this.#tripPoints = tripPoints.map(this.#adaptToClient);
+      this._notify(UpdateType.INIT);
     } catch(err) {
       this.#tripPoints = [];
     }
